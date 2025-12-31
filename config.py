@@ -76,6 +76,8 @@ EXCLUDE_KEYWORDS = [
     "documentation",
     "release notes",
     "version",
+    "app",
+    "web"
 ]
 
 
