@@ -1,5 +1,8 @@
-NEWS_API_KEY= "8af49fba0f0c4c209f36e7bc64a36dea"
-OPENAI_API_KEY= "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"
+import os
+
+NEWS_API_KEY = os.environ["NEWS_API_KEY"]
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+
 
 AI_KEYWORDS = {
     "openai": 5,
