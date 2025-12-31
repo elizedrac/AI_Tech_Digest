@@ -4,6 +4,7 @@ from config import AI_KEYWORDS, SOURCE_WEIGHTS, EXCLUDE_KEYWORDS
 def score_article(article):
     score = 0
     text = (article["title"] + " " + (article.get("description") or "")).lower()
+    url = article["url"]
 
     for keyword, weight in AI_KEYWORDS.items():
         if keyword in text:
@@ -14,7 +15,7 @@ def score_article(article):
 
     # adhere to only news articles
     for keyword in EXCLUDE_KEYWORDS:
-        if keyword in text:
+        if keyword in text or keyword in url:
             return 0
 
     published = datetime.fromisoformat(article["publishedAt"].replace("Z", ""))
