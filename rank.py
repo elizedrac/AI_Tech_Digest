@@ -12,6 +12,11 @@ def score_article(article):
     source = article["source"]["name"]
     score += SOURCE_WEIGHTS.get(source, 1)
 
+    # adhere to only news articles
+    for keyword in EXCLUDE_KEYWORDS:
+        if keyword in text:
+            return 0
+
     published = datetime.fromisoformat(article["publishedAt"].replace("Z", ""))
     hours_old = (datetime.utcnow() - published).total_seconds() / 3600
 
