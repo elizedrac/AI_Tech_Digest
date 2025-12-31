@@ -77,7 +77,9 @@ EXCLUDE_KEYWORDS = [
     "release notes",
     "version",
     "app",
-    "web"
+    "web",
+    "pii",
+    "firewall"
 ]
 
 
