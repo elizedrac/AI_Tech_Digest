@@ -69,5 +69,14 @@ SOURCE_WEIGHTS = {
     # Tier 5: Blogs / unknowns handled by default = 1
 }
 
+EXCLUDE_KEYWORDS = [
+    "pypi",
+    "package",
+    "library",
+    "documentation",
+    "release notes",
+    "version",
+]
+
 
 
