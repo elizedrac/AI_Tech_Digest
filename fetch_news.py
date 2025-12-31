@@ -9,10 +9,10 @@ def fetch_articles():
     url = "https://newsapi.org/v2/everything"
     headers = {"X-Api-Key": api_key}
     params = {
-        "q": "artificial intelligence OR technology",
+        "q": "AI OR artificial intelligence OR technology",
         "language": "en",
         "sortBy": "publishedAt",
-        "pageSize": 20,
+        "pageSize": 100,
     }
 
     response = requests.get(url, headers=headers, params=params)
