@@ -71,6 +71,10 @@ SOURCE_WEIGHTS = {
 
 EXCLUDE_KEYWORDS = [
     "pypi",
+    "npm",
+    "github",
+    "gitlab",
+    "bitbucket",
     "package",
     "library",
     "documentation",
