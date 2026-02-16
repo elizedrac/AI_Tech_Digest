@@ -8,8 +8,7 @@ def main():
     deduped = []
     for article in articles:
         if article["title"] and article["title"] not in deduped:
-            deduped.append(article["title"])
-            ranked.append(article)
+            deduped.append(article)
 
     ranked = sorted(deduped, key=score_article, reverse=True)
     
