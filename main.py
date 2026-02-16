@@ -4,8 +4,15 @@ from email_digest import send_email
 
 def main():
     articles = fetch_articles()
-    ranked = sorted(articles, key=score_article, reverse=True)
 
+    deduped = []
+    for article in articles:
+        if article["title"] and article["title"] not in deduped:
+            deduped.append(article["title"])
+            ranked.append(article)
+
+    ranked = sorted(deduped, key=score_article, reverse=True)
+    
     lines = []
     for i, article in enumerate(ranked[:3], 1):
         lines.append(f"{i}. {article['title']}")
