@@ -5,9 +5,17 @@ from email_digest import send_email
 def main():
     articles = fetch_articles()
 
+    # dedupe by normalized title (fallback to url) while preserving order
+    seen = set()
     deduped = []
     for article in articles:
-        if article["title"] and article["title"] not in deduped:
+        title = (article.get("title") or "").strip()
+        url = (article.get("url") or "").strip()
+        norm_title = " ".join(title.lower().split())
+        norm_url = url.split("?", 1)[0].lower()
+        key = norm_title or norm_url
+        if key and key not in seen:
+            seen.add(key)
             deduped.append(article)
 
     ranked = sorted(deduped, key=score_article, reverse=True)
